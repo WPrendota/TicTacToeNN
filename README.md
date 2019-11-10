@@ -15,16 +15,16 @@ You can test yourself with an easy and strong bot (learned by QRL).
 
 After each game, Q-Table is created and filled with respective values depending on if the QRL Player based on the following equation for loosing:
 
-Q-Value = min(Q-Table) * (1-Learning_rate) - Learning_rate * Discount * Q-Value_next
+Q-Value = Q-Value_old * (1-Learning_rate) - Learning_rate * Discount * Q-Value_next
 
 and winning:
 
-Q-Value = max(Q-Table) * (1-Learning_rate) + Learning_rate * Discount * Q-Value_next
+Q-Value = Q-Value_old * (1-Learning_rate) + Learning_rate * Discount * Q-Value_next
 
 ---
 
 ## Deployment:
-Download the **??.py** file. In the command line use following arguments for desirable action:
+Download all of the ***.py** files. In the command line run 'python tic_tac_toe_running_script' and use any of the following arguments for desirable action:
 * ```-h``` for the help
 * ```-e``` for The TicTacToe game: easy bot,
 * ```-s``` for The TicTacToe game: strong bot,
@@ -54,11 +54,28 @@ The Random Computer Player vs QRL Player:
 Learning_rate: 0.1
 Discount: 0.9
 
-The Random Computer Player vs Random Computer Player:
+Game count: 40000, Player QRL wins: 22210, Player QRL lost: 6365, Ties: 11424
+
+![player_qrl_1_training_1](https://user-images.githubusercontent.com/5718654/68550660-fd0ba300-0404-11ea-99c2-24b5582bed0e.png)
+
+![player_qrl_1_training_2](https://user-images.githubusercontent.com/5718654/68550661-fda43980-0404-11ea-8d0c-ef78fd7a0b99.png)
+
+The Random Computer Player vs Random Computer Player (the player 1 started first):
+
+Game count: 20000, Player QRL wins: 5709, Player QRL lost: 11715, Ties: 2575
+
+![player_qrl_1_training_1](https://user-images.githubusercontent.com/5718654/68550584-56bf9d80-0404-11ea-8a42-81c795f8f31b.png)
+
+![player_qrl_1_training_2](https://user-images.githubusercontent.com/5718654/68550585-56bf9d80-0404-11ea-9210-d7a12ef67a87.png)
 
 
-The QRL Player vs QRL Player:
+The QRL Player vs QRL Player (each of the players learned separately):
 
+Game count: 20000, Player QRL wins: 4560, Player QRL lost: 13282, Ties: 2157
+
+![player_qrl_1_training_1](https://user-images.githubusercontent.com/5718654/68550679-36dca980-0405-11ea-9702-7294373b14ad.png)
+
+![player_qrl_1_training_2](https://user-images.githubusercontent.com/5718654/68550680-36dca980-0405-11ea-9b6b-e5e3e716b901.png)
 
 ---
 
