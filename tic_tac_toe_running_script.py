@@ -145,7 +145,7 @@ if __name__ == '__main__':
         ttt = TicTacToe(1)
         ttt.run_game()
     elif game_mode == 2:
-        ttt = TicTacToe(2)
+        ttt = TicTacToe(2, 'training')
         ttt.run_game()
     elif game_mode == 3:
         # The number of test and training data to collect

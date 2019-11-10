@@ -1,0 +1,1 @@
+Game count: 40000Player QRL wins: 22210Player QRL lost: 6365Ties: 11424

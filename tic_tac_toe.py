@@ -19,7 +19,12 @@ class TicTacToe:
             self.computer_player = ComputerPlayer()  # The Computer Player
         # Computer Player move - strong bot
         elif game_number == 2:
-            self.computer_player = PlayerQRL(1, 0.1, 0.9, 0.7, game_number, 1)  # The QRL Computer Player
+            self.player_list = []
+            self.player_list.append(PlayerQRL(1, 0.1, 0.9, 0.7, game_number, 1))  # The QRL Computer Player
+
+            # Load saved players data:
+            load_players_stats(self.player_list, file_name)
+
         elif game_number == 3:
             self.player_list = []
 
@@ -31,6 +36,7 @@ class TicTacToe:
 
             # Load saved players data:
             load_players_stats(self.player_list, file_name)
+
         elif game_number == 4:
             self.player_list = []
 
@@ -43,6 +49,7 @@ class TicTacToe:
 
             # Load saved players data:
             load_players_stats(self.player_list, file_name)
+
         elif game_number == 5:
             self.player_list = []
 
@@ -81,24 +88,22 @@ class TicTacToe:
                                         print("The winner is: {}".format(self.winner))
 
                                     if self.game_number == 2:
-                                        print(self.computer_player.q_tables.values())
                                         # Update Player Q-Table
-                                        self.computer_player.update(self.winner)
+                                        self.player_list[0].update(self.winner)
                                         # Print player statistics
                                         # print_game_stats(board, player_list, game_number)
 
                                         # Save players statistics into separate '.txt' file
-                                        save_players_stats([self.computer_player], 'training')
+                                        save_players_stats([self.player_list[0]], 'training')
 
                                         # Export data to text file
-                                        export_data_to_text_file([self.computer_player], 'training')
+                                        export_data_to_text_file([self.player_list[0]], 'training')
                                     break
 
                                 #  Check if tie
                                 if not self.check_if_board_is_full:
                                     if self.validate(-1, 1):
                                         print("The winner is: {}".format(self.winner))
-                                        print(self.computer_player.q_tables.values())
                                     break
 
                                 # Computer Player move
@@ -109,18 +114,11 @@ class TicTacToe:
                                             self.game_board.set_pawn(computer_move[0], computer_move[1], -1)
                                             break
 
-
-
-
                                 if self.game_number == 2:
-                                    computer_move = self.computer_player.set_pawn(self.game_board)
+                                    computer_move = self.player_list[0].set_pawn(self.game_board)
 
                                     if self.check_next_move(computer_move):
                                         self.game_board.set_pawn(computer_move[0], computer_move[1], -1)
-
-
-
-
 
                                 # Check if winner
                                 if self.validate(-1,1):
@@ -129,9 +127,6 @@ class TicTacToe:
                                         print("It is a Tie!")
                                     else:
                                         print("The winner is: {}".format(self.winner))
-
-                                    if self.game_number == 2:
-                                        print(self.computer_player.q_tables.values())
                                     break
                             else:
                                 print("Position taken! Please choose empty field.")
