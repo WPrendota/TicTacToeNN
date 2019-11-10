@@ -15,11 +15,11 @@ You can test yourself with an easy and strong bot (learned by QRL).
 
 After each game, Q-Table is created and filled with respective values depending on if the QRL Player based on the following equation for loosing:
 
-Q-Value = min(Q-Table) * (1-Learning_rate) - Learning_rate * Discount * Q-Value_next
+Q-Value = Q-Value_old * (1-Learning_rate) - Learning_rate * Discount * Q-Value_next
 
 and winning:
 
-Q-Value = max(Q-Table) * (1-Learning_rate) + Learning_rate * Discount * Q-Value_next
+Q-Value = Q-Value_old * (1-Learning_rate) + Learning_rate * Discount * Q-Value_next
 
 ---
 
@@ -69,7 +69,7 @@ Game count: 20000, Player QRL wins: 5709, Player QRL lost: 11715, Ties: 2575
 ![player_qrl_1_training_2](https://user-images.githubusercontent.com/5718654/68550585-56bf9d80-0404-11ea-9210-d7a12ef67a87.png)
 
 
-The QRL Player vs QRL Player:
+The QRL Player vs QRL Player (each of the players learned separately):
 
 Game count: 20000, Player QRL wins: 4560, Player QRL lost: 13282, Ties: 2157
 
