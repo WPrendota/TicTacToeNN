@@ -77,6 +77,10 @@ Game count: 20000, Player QRL wins: 4560, Player QRL lost: 13282, Ties: 2157
 
 ![player_qrl_1_training_2](https://user-images.githubusercontent.com/5718654/68550680-36dca980-0405-11ea-9b6b-e5e3e716b901.png)
 
+The QRL Player vs QRL Player (each of the players learned separately):
+
+
+
 ---
 
 ## Testing
